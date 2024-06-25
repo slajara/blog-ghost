@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Post } from "../typings";
+import BlogList from "@/components/BlogList";
 
 const Home: React.FC = () => {
   const [posts, setPosts] = useState<Post[]>([]);
@@ -20,12 +21,9 @@ const Home: React.FC = () => {
 
   return (
     <div>
-      {posts.map((post: Post) => (
-        <div key={post.id}>
-          <h1>{post.title}</h1>
-          <p>{post.excerpt}</p>
-        </div>
-      ))}
+      
+         <BlogList posts={posts} />
+      
     </div>
   );
 };
