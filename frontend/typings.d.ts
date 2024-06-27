@@ -1,4 +1,3 @@
-// Base type for common fields
 export type Base = {
   id: string;
   created_at: string;
@@ -6,14 +5,13 @@ export type Base = {
   slug: string;
 };
 
-// Extends Base with specific fields for a post
 export interface Post extends Base {
   title: string;
-  html: string; // Ghost returns HTML content by default
-  feature_image?: string; // Optional featured image URL
-  custom_excerpt?: string; // Optional custom excerpt
-  tags?: Tag[]; // Optional array of tags
-  authors?: Author[]; // Optional array of authors
+  slug: Slug;
+  feature_image: string;
+  excerpt: string;
+  tags: Tag[];
+  author: Author; 
 }
 
 // Author details as provided by Ghost
