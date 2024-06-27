@@ -8,7 +8,7 @@ type Props = {
 function BlogList({ posts }: Props) {
   return (
     <div>
-      <hr className="border-[#F7Ab0A] mb-10" />
+      <hr className="border-[#0AABF7] mb-10" />
 
       <div className="grid grid-cols-1 md:grid-cols-2 px-10 gap-10 gap-y-16 pb-24">
         {posts.map((post) => (
@@ -17,7 +17,7 @@ function BlogList({ posts }: Props) {
               <Image
                 className="object-cover object-left lg:object-center"
                 src="/Kitsune-whitout-blackground.png"
-                alt={post.excerpt}
+                alt={post.created_at}
                 fill
                 sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 priority={true}
