@@ -9,21 +9,26 @@ const Home: React.FC = () => {
 
   useEffect(() => {
     async function fetchPosts() {
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_GHOST_API_URL}/posts/?key=${process.env.NEXT_PUBLIC_GHOST_API_KEY}`
-      );
-      const data = await response.json();
-      setPosts(data.posts);
+      try {
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_GHOST_API_URL}/posts/?key=${process.env.NEXT_PUBLIC_GHOST_API_KEY}`
+        );
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        setPosts(data.posts);
+      } catch (error) {
+        console.error("Error fetching posts:", error);
+      }
     }
 
-    fetchPosts().catch(console.error);
+    fetchPosts();
   }, []);
 
   return (
     <div>
-      
-         <BlogList posts={posts} />
-      
+      <BlogList posts={posts} />
     </div>
   );
 };
