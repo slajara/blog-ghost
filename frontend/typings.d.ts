@@ -12,6 +12,7 @@ export interface Post extends Base {
   excerpt: string;
   tags: Tag[];
   author: Author; 
+  html: string;
 }
 
 // Author details as provided by Ghost
