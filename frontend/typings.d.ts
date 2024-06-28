@@ -11,29 +11,21 @@ export interface Post extends Base {
   feature_image: string;
   excerpt: string;
   tags: Tag[];
-  author: Author; 
+  authors: Author[]; 
   html: string;
 }
 
-// Author details as provided by Ghost
 export interface Author extends Base {
   name: string;
-  profile_image?: string; // Optional profile image URL
-  cover_image?: string; // Optional cover image URL
-  bio?: string; // Optional biography
-  website?: string; // Optional website URL
-  location?: string; // Optional location
+  profile_image: string;
+  cover_image?: string; 
+  bio?: string; 
+  website?: string; 
+  location?: string; 
 }
 
-// Image type simplified for use with feature images and author images
-export interface Image {
-  url: string; // URL to the image
-  caption?: string; // Optional image caption
-}
-
-// Tag details as provided by Ghost
 export interface Tag extends Base {
   name: string;
-  description?: string; // Optional description
-  feature_image?: string; // Optional featured image URL
+  description?: string; 
+  feature_image?: string;
 }
