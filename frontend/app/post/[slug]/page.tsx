@@ -56,7 +56,7 @@ const PostPage: React.FC = () => {
               <Image
                 className="object-cover object-left lg:object-center"
                 src={post.feature_image}
-                alt={post.created_at}
+                alt={post.title}
                 fill
                 sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 priority={true}
@@ -97,7 +97,7 @@ const PostPage: React.FC = () => {
               )}
             </div>
             <div>
-              <h2 className="italic pt-10">{post.title}</h2>
+              <h2 className="italic pt-10">{post.excerpt}</h2>
               <div className="flex items-center justify-end mt-auto space-x-2">
                 {post.tags.map((tag) => (
                   <p
